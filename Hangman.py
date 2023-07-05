@@ -1,16 +1,24 @@
 import random
 import turtle
+import tkinter
+
  
 
 def read_words():
-    with open('E:\Edvgraz\EDVGraz_Übungen\Pyhton\Wiederholung\hangman_woerter.txt', 'r', encoding='utf-8') as file:
+    with open('hangman_woerter.txt', 'r', encoding='utf-8') as file:
         words = [word.strip().lower() for word in file]
     return words
+
 # Spielfeld 
 def draw_playground():
     turtle.setup (500, 500)
     turtle.title("Hangman")
     turtle.forward(100)
+    turtle.right(35)
+    turtle.forward(40)
+
+""" def draw_hangman(): """
+
 
 # function um, Umlaute zu ersetzen
 def replace_special_characters(word):
@@ -45,6 +53,7 @@ def play_hangman():
             guess = input("Gib einen Buchstaben ein: ").lower()
 
             if guess in guessed_letters:
+                tries += 1
                 print("Du hast diesen Buchstaben bereits geraten. Bitte versuche es erneut.")
                 continue
 
